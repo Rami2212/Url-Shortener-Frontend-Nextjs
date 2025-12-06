@@ -11,7 +11,7 @@ export function Header() {
               Simple URL Shortener
             </div>
             <div className="text-xs text-slate-400">
-              Short your url
+              Short your URL
             </div>
           </div>
         </div>
