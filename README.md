@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# URL Shortener Frontend
 
-## Getting Started
+A modern, responsive UI for URL shortening built with Next.js and TailwindCSS.
 
-First, run the development server:
+## 🔧 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Component | Technology |
+|-----------|-----------|
+| Framework | Next.js |
+| Styling | TailwindCSS |
+| Language | TypeScript |
+| Package Manager | Yarn |
+| Node Runtime | Node 23 (Docker) |
+| Deployment | Docker (multi-stage) |
+
+## 📌 Features
+
+### ✓ Clean Modern UI
+- Dark-themed interface using Tailwind
+- Responsive design for all devices
+
+### ✓ URL Shortening Form
+- Input field for long URLs
+- Sends request to backend API
+- Displays short URL with "Copy" button
+
+### ✓ Result List Component
+- Shows shortened URLs in card format
+- Displays both original and short URLs
+- Easy reference for all shortened links
+
+### ✓ Clipboard Copy
+- 1-click copy of short URLs
+- User-friendly copy feedback
+
+### ✓ Fully Dockerized
+- Multi-stage production build
+- Optimized runtime image using Node 23 + Yarn
+
+## 📁 Project Structure
+
+```
+frontend/
+  app/
+    layout.tsx       # Root layout
+    page.tsx         # Main Shortener UI
+    components/
+      Header.tsx
+      Footer.tsx
+      ShortenForm.tsx
+      ShortUrlCard.tsx
+      ShortUrlList.tsx
+  lib/
+    api.ts           # API calls to backend
+    types.ts         # Shared types
+    utils.ts         # Copy to clipboard
+  public/
+  Dockerfile
+  .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the frontend directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+```
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Running with Docker Compose
+```bash
+docker compose up --build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The frontend will be available at `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Running Locally
 
-## Deploy on Vercel
+1. Install dependencies:
+```bash
+cd frontend
+yarn install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Create `.env.local` with the API base URL:
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Run the development server:
+```bash
+yarn dev
+```
+
+4. Open `http://localhost:3000` in your browser
+
+## 📦 Key Components
+
+### ShortenForm
+Handles URL input and submission to the backend API
+
+### ShortUrlCard
+Displays individual shortened URL results with copy functionality
+
+### ShortUrlList
+Renders a list of all shortened URLs
+
+### Header & Footer
+Navigation and branding components
+
+## 🔗 Service URLs
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:3000 |
+| Backend API | http://localhost:8080 |
+
+## 🎯 Future Improvements
+
+- Custom short code support (vanity URLs)
+- Click analytics dashboard
+- URL expiration support
+- Authentication for protected URLs
+- QR code generation
+- Full-text history page
